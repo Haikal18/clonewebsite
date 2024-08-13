@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hasil Pengajuan Peminatan Mahasiswa</title>
+  </head>
+  <body>
+    <fieldset>
+      <p style="margin-bottom: 0px;">UPN Veteran Jakarta</p>
+      <img src="logoupn.png" width="20px" height="20px" />
+      <legend>Hasil Pengajuan Peminatan Mahasiswa</legend>
+
+      <p id="hasil"></p>
+
+      Mata Kuliah yang di Pilih:
+      <ul id="list_mk"></ul>
+    </fieldset>
+
+    <script>
+      let urlParams = new URLSearchParams(window.location.search);
+      let nim = urlParams.get("nim");
+      let nama = urlParams.get("nama");
+      let semester = urlParams.get("semester");
+      let prodi = urlParams.get("prodi");
+      let mk = urlParams.get("mk").split(",");
+      const list_mk = document.getElementById("list_mk");
+
+      class Angkatan {
+        constructor(semester) {
+          this.semester = semester;
+        }
+
+        getTahun() {
+          let thn_masuk =
+            new Date().getFullYear() - Math.ceil(this.semester / 2);
+          return thn_masuk;
+        }
+      }
+
+      class Mahasiswa extends Angkatan {
+        constructor(nim, nama, semester, prodi) {
+          super(semester);
+          this.nim = nim;
+          this.nama = nama;
+          this.prodi = prodi;
+        }
+
+        outputan() {
+          let element = document.getElementById("hasil");
+
+          if (element !== null) {
+            element.innerHTML =
+              "Nim : <b>" +
+              this.nim +
+              "</b>, <br/>Nama : <b>" +
+              this.nama +
+              "</b>, </br>Program Studi: <b>" +
+              this.prodi +
+              "</b>, <br/>Tahun Masuk: <b>" +
+              this.getTahun();
+          }
+        }
+      }
+
+      let mahasiswa = new Mahasiswa(nim, nama, semester, prodi);
+      mahasiswa.outputan();
+
+      mk.forEach(mataKuliah => {
+        let li = document.createElement("li");
+        li.textContent = mataKuliah;
+        list_mk.appendChild(li);
+      });
+    </script>
+  </body>
+</html>

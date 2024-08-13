@@ -1,0 +1,161 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  margin: 0px;
+}
+.header {
+  color: white;
+  text-align: center;
+  background-color: rgb(17, 17, 69);
+  padding: 1px;
+  width: 100%;
+}
+
+.navbar {
+  text-align: center;
+  color: rgb(0, 123, 255);
+  display: flex;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar img {
+  width: 50px;
+  height: auto;
+  margin-left: 5%;
+}
+
+.navbarHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.welcome {
+  font-size: 50px;
+}
+
+#buttonPeminatan {
+  background-color: #008aff;
+  border: 1px solid #008aff;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+#buttonDaftar {
+  background-color: white;
+  border: 2px solid grey;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  color: black;
+}
+
+.leftSide {
+  width: 50%;
+  margin-left: 5%;
+}
+
+.leftSide h1 {
+  font-size: 65px;
+}
+
+.leftSide p {
+  font-size: 20px;
+  width: 80%;
+  color: #8390a3;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: row;
+}
+
+.rightSide {
+  width: 50%;
+}
+
+.rightSide img {
+  width: 80%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
+  margin-left: 10%;
+}
+
+.popup {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 40px;
+  box-shadow: 0px 0px 10px rgba(58, 58, 58, 0.5);
+  z-index: 9999;
+  border-radius: 20px;
+}
+
+
+.popup-content p {
+  text-align: left;
+
+}
+
+.popup-content img {
+  margin-left: 0px;
+}
+
+.popup-content h4 {
+  text-align: center;
+}
+
+#closeButton {
+  position: absolute;
+  bottom: 10px;
+  right: 40px;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 5px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #04c8f9;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
